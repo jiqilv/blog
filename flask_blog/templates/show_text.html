@@ -1,0 +1,6 @@
+{% for post in session.get('posts', []) %}
+<div>
+  <p><strong>{{ post.author }}:</strong> {{ post.message }}</p>
+</div>
+{% endfor %}
+<a href="/return_home">返回主页</a>

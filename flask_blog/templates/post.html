@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Write a Post</title>
+</head>
+<body>
+    <h1>Write a Post</h1>
+    <form method="POST" action="{{ url_for('post', username=username) }}">
+        <textarea name="content" placeholder="Write your post here" required></textarea><br>
+        <input type="submit" value="Publish">
+    </form>
+</body>
+</html>

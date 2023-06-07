@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Page</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+    <h2>Your Posts:</h2>
+    <ul>
+        {% for post in posts %}
+        {% if post.username == username %}
+        <li>{{ post.content }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <form method="POST" action="{{ url_for('post', username=username) }}">
+        <textarea name="content" placeholder="Write your post here" required></textarea><br>
+        <input type="submit" value="Publish">
+    </form>
+    <a href="{{ url_for('index') }}">Go to Homepage</a>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>meliodas の 博客</title>
+    <style>
+      #image-container {
+        position: relative;
+        width: 480px;
+        height: 650px;
+      }
+      #image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #text-container {
+        position: absolute;
+        top: 50px;
+        right: 30px;
+        width: 200px;
+        background-color: rgba(255, 255, 255, 0.6);
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 20px;
+        color: #fff9cc;  /* 淡黄色 */
+      }
+      body {
+        background-image: url('/static/2.jpg');
+        background-size: auto;
+        color: white;
+        font-size: 20px;
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>想和我聊聊天吗？</h1>
+    {% if session.get('logged_in') %}
+    <a href="{{ url_for('logout') }}">换个账号捏</a>
+    {% endif %}
+    <div id="image-container">
+      <img src="/static/1.jpg" alt="My Image">
+      <div id="text-container">
+        <p>{{ text_data }}</p>
+      </div>
+    </div>
+    <form action="{{ url_for('save_text') }}" method="post">
+      <label for="text-input">输入留言捏:</label>
+      <input type="text" id="text-input" name="text">
+      <button type="submit">保存</button>
+      <a href="https://www.bilibili.com">点击进入 B站</a>
+    </form>
+  </body>
+</html>
